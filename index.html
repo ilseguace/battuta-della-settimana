@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Battuta della Settimana</title>
+
+<style>
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f2f2f2;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.container{
+    background:white;
+    padding:40px;
+    max-width:500px;
+    text-align:center;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+h1{
+    font-size:28px;
+}
+
+button{
+    margin-top:25px;
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:8px;
+    background:#ffd54f;
+    cursor:pointer;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+#answer{
+    margin-top:30px;
+    font-size:22px;
+    display:none;
+}
+
+.ad{
+    margin-top:35px;
+    padding:20px;
+    background:#e0e0e0;
+    border-radius:8px;
+    font-size:14px;
+}
+</style>
+
+<script>
+function showAnswer(){
+    document.getElementById("answer").style.display="block";
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🤔 Che differenza c’è tra me e Batman?</h1>
+
+<button onclick="showAnswer()">
+Scopri la battuta della settimana
+</button>
+
+<div id="answer">
+🦇 Nessuna, entrambi facciamo le bat-tute
+</div>
+
+<div class="ad">
+SPAZIO PUBBLICITÀ (incolla qui il codice Google AdSense)
+</div>
+
+<div class="ad">
+SPAZIO PUBBLICITÀ
+</div>
+
+</div>
+
+</body>
+</html>
