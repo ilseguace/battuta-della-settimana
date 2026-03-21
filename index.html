@@ -3,10 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1706259833528879"
      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-1706259833528879">
+
 <title>Battuta della Settimana</title>
 
 <style>
@@ -27,6 +29,17 @@ body{
     text-align:center;
     border-radius:12px;
     box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.home-link{
+    display:inline-block;
+    margin-bottom:20px;
+    text-decoration:none;
+    background:#ddd;
+    padding:10px 15px;
+    border-radius:6px;
+    font-size:14px;
+    color:black;
 }
 
 h1{
@@ -94,19 +107,14 @@ function showAnswer(){
 }
 
 function shareWhatsApp(){
-    const text = "Battuta della Settimana";
+    const text = "Guarda questa battuta 😂";
     const url = window.location.href;
     window.open(`https://wa.me/?text=${text} ${url}`);
 }
-     
+
 function shareFacebook(){
     const url = window.location.href;
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`);
-}
-     
-function shareLinkedIn(){
-    const url = window.location.href;
-    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`);
 }
 
 </script>
@@ -116,6 +124,10 @@ function shareLinkedIn(){
 <body>
 
 <div class="container">
+
+<a href="https://ilseguace.github.io/" class="home-link">
+⬅ Torna alla home
+</a>
 
 <h1>😂 Battuta della settimana</h1>
 
@@ -128,23 +140,23 @@ Scopri la battuta
 </button>
 
 <div id="answer">
-               ... Ma-ometto
+... Ma-ometto
 </div>
-
 
 <div class="image-box">
 <!-- INSERISCI QUI L'IMMAGINE -->
-<!--img src="batman_tuta.jpg" alt="battuta" style="width: 200px; display: block; margin: 0 auto;"-->
+<!-- <img src="batman_tuta.jpg" alt="battuta"> -->
 </div>
+
 <div class="share">
 
 <p>Condividi la battuta</p>
 
 <button onclick="shareWhatsApp()">WhatsApp</button>
-<button onclick="shareLinkedIn()">LinkedIn</button>
 <button onclick="shareFacebook()">Facebook</button>
 
 </div>
+
 <!--
 <div class="ad">
 SPAZIO PUBBLICITÀ
@@ -154,6 +166,7 @@ SPAZIO PUBBLICITÀ
 SPAZIO PUBBLICITÀ
 </div>
 -->
+
 </div>
 
 </body>
