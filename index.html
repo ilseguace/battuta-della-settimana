@@ -62,13 +62,13 @@ button:hover{
 
 /* Immagine già più piccola e più distante dal bottone */
 .image-box{
-    margin-top:50px; /* spazio extra */
+    margin-top:50px;
 }
 
 .image-box img{
     max-width:70%;
     border-radius:10px;
-    transition:transform 0.3s ease;
+    transition:transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* Fade-in lettera per lettera */
@@ -94,6 +94,19 @@ button:hover{
 
 .shake{
     animation:shake 0.15s infinite;
+}
+
+/* ESPLOSIONE CARTOON */
+@keyframes explodeCartoon {
+    0% { transform: scale(1) rotate(0deg); opacity: 1; filter: brightness(1); }
+    20% { transform: scale(1.3) rotate(8deg); filter: brightness(1.4); }
+    40% { transform: scale(0.9) rotate(-8deg); filter: brightness(0.8); }
+    60% { transform: scale(2.5) rotate(0deg); opacity: 0.7; filter: brightness(2); }
+    100% { transform: scale(4) rotate(0deg); opacity: 0; filter: brightness(3); }
+}
+
+.explode{
+    animation: explodeCartoon 0.7s forwards;
 }
 
 .share{
@@ -158,37 +171,44 @@ function toggleAnswer(){
     if(answer.style.display === "none"){
         answer.style.display = "block";
         answer.innerHTML = "";
-
         btn.textContent = "Nascondi battuta";
 
         const text = "... Ma-ometto :)";
         let delay = 0;
 
-        // Avvia subito il tremolio
+        /* 1️⃣ TREMOLO SUBITO */
         img.classList.add("shake");
 
-        // Lettere con fade-in progressivo
-        for(let i = 0; i < text.length; i++){
-            const span = document.createElement("span");
-            span.textContent = text[i];
-            span.classList.add("fade-letter");
-            span.style.animationDelay = (delay / 1000) + "s";
-            answer.appendChild(span);
-            delay += 80;
-        }
-
-        // Ferma tremolio 2 secondi dopo la fine della scrittura
+        /* 2️⃣ DOPO 2 SECONDI PARTE IL TESTO */
         setTimeout(() => {
-            img.classList.remove("shake");
-        }, delay + 2000);
+
+            for(let i = 0; i < text.length; i++){
+                const span = document.createElement("span");
+                span.textContent = text[i];
+                span.classList.add("fade-letter");
+                span.style.animationDelay = (delay / 1000) + "s";
+                answer.appendChild(span);
+                delay += 80;
+            }
+
+            /* 3️⃣ QUANDO IL TESTO È COMPLETO → ESPLOSIONE */
+            setTimeout(() => {
+                img.classList.remove("shake");
+                img.classList.add("explode");
+            }, delay + 300);
+
+        }, 2000); // attesa tremolio iniziale
 
     } else {
+        /* RESET */
         answer.style.display = "none";
         answer.innerHTML = "";
         btn.textContent = "Scopri la battuta";
 
-        // Ferma tremolio se attivo
         img.classList.remove("shake");
+        img.classList.remove("explode");
+        img.style.opacity = "1";
+        img.style.transform = "scale(1)";
     }
 }
 
