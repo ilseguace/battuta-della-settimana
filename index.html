@@ -4,11 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google AdSense -->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1706259833528879"
-     crossorigin="anonymous"></script>
-<meta name="google-adsense-account" content="ca-pub-1706259833528879">
-
 <title>Battuta della Settimana</title>
 
 <style>
@@ -60,149 +55,27 @@ button:hover{
     font-size:24px;
 }
 
-.image-box{
-    margin-top:30px;
-}
-
+/* Immagine già più piccola */
 .image-box img{
-    max-width:100%;
+    max-width:70%;
     border-radius:10px;
+    transition:transform 0.3s ease;
 }
 
-.share{
-    margin-top:35px;
-}
-
-.share button{
-    margin:5px;
-    font-size:14px;
-    padding:10px 15px;
-}
-
-.newsletter{
-    margin-top:40px;
-}
-
-.newsletter p{
-    margin-bottom:10px;
-    font-size:16px;
-    color:#444;
-}
-
-.substack-btn{
+/* Fade-in lettera per lettera */
+.fade-letter{
+    opacity:0;
     display:inline-block;
-    padding:12px 20px;
-    background:#eee;
-    color:#333;
-    font-size:15px;
-    border-radius:6px;
-    text-decoration:none;
-    border:1px solid #ddd;
+    animation:fadeIn 0.4s forwards;
 }
 
-.substack-btn:hover{
-    background:#e0e0e0;
+@keyframes fadeIn{
+    from{opacity:0;}
+    to{opacity:1;}
 }
 
-.footer{
-    margin-top:40px;
-    font-size:14px;
-    color:#666;
-}
-
-.footer a{
-    text-decoration:none;
-    color:#666;
-}
-
-.footer a:hover{
-    text-decoration:underline;
-}
-
-</style>
-
-<script>
-
-// 🔄 NUOVA FUNZIONE TOGGLE
-function toggleAnswer(){
-    const answer = document.getElementById("answer");
-    const btn = document.getElementById("toggleBtn");
-
-    if(answer.style.display === "none"){
-        answer.style.display = "block";
-        btn.textContent = "Nascondi battuta";
-    } else {
-        answer.style.display = "none";
-        btn.textContent = "Scopri la battuta";
-    }
-}
-
-function shareWhatsApp(){
-    const text = "Guarda questa battuta 😂";
-    const url = window.location.href;
-    window.open(`https://wa.me/?text=${text} ${url}`);
-}
-
-function shareFacebook(){
-    const url = window.location.href;
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`);
-}
-
-</script>
-
-</head>
-
-<body>
-
-<div class="container">
-
-<h1>😂 Battuta della settimana</h1>
-
-<div class="riddle">
-Vorrei fare una battuta sull'Islam...
-</div>
-
-<!-- 🔘 BOTTONE AGGIORNATO -->
-<button id="toggleBtn" onclick="toggleAnswer()">
-Scopri la battuta
-</button>
-
-<div id="answer">
-... Ma-ometto
-</div>
-
-<div class="image-box">
-<img src="maometto.jpg" alt="battuta">
-</div>
-
-<div class="share">
-
-<p>Condividi la battuta</p>
-
-<button onclick="shareWhatsApp()">WhatsApp</button>
-<button onclick="shareFacebook()">Facebook</button>
-
-</div>
-
-<!-- Newsletter -->
-<div class="newsletter">
-    <p><strong>📬 Vuoi ricevere una battuta a settimana via mail?</strong></p>
-    
-    <a class="substack-btn" 
-       href="https://marcodelfavero1.substack.com/subscribe" 
-       target="_blank">
-       Iscriviti alla Newsletter
-    </a>
-</div>
-
-<!-- Footer -->
-<div class="footer">
-    <a href="https://ilseguace.github.io/">Informazioni sul sito</a> |
-    <a href="/privacy.html">Privacy</a> |
-    <a href="/contatti.html">Contatti</a>
-</div>
-
-</div>
-
-</body>
-</html>
+/* Tremolio immagine */
+@keyframes shake{
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-3px, 2px); }
+    50
