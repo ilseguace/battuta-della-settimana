@@ -60,7 +60,11 @@ button:hover{
     font-size:24px;
 }
 
-/* Immagine già più piccola */
+/* Immagine già più piccola e più distante dal bottone */
+.image-box{
+    margin-top:50px; /* spazio extra */
+}
+
 .image-box img{
     max-width:70%;
     border-radius:10px;
@@ -160,6 +164,9 @@ function toggleAnswer(){
         const text = "... Ma-ometto :)";
         let delay = 0;
 
+        // Avvia subito il tremolio
+        img.classList.add("shake");
+
         // Lettere con fade-in progressivo
         for(let i = 0; i < text.length; i++){
             const span = document.createElement("span");
@@ -170,17 +177,17 @@ function toggleAnswer(){
             delay += 80;
         }
 
-        // Tremolio immagine quando la frase è completa
+        // Ferma tremolio 2 secondi dopo la fine della scrittura
         setTimeout(() => {
-            img.classList.add("shake");
-        }, delay + 300);
+            img.classList.remove("shake");
+        }, delay + 2000);
 
     } else {
         answer.style.display = "none";
         answer.innerHTML = "";
         btn.textContent = "Scopri la battuta";
 
-        // Ferma tremolio
+        // Ferma tremolio se attivo
         img.classList.remove("shake");
     }
 }
