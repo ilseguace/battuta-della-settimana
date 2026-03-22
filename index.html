@@ -123,8 +123,18 @@ button:hover{
 
 <script>
 
-function showAnswer(){
-    document.getElementById("answer").style.display="block";
+// 🔄 NUOVA FUNZIONE TOGGLE
+function toggleAnswer(){
+    const answer = document.getElementById("answer");
+    const btn = document.getElementById("toggleBtn");
+
+    if(answer.style.display === "none"){
+        answer.style.display = "block";
+        btn.textContent = "Nascondi battuta";
+    } else {
+        answer.style.display = "none";
+        btn.textContent = "Scopri la battuta";
+    }
 }
 
 function shareWhatsApp(){
@@ -152,7 +162,8 @@ function shareFacebook(){
 Vorrei fare una battuta sull'Islam...
 </div>
 
-<button onclick="showAnswer()">
+<!-- 🔘 BOTTONE AGGIORNATO -->
+<button id="toggleBtn" onclick="toggleAnswer()">
 Scopri la battuta
 </button>
 
@@ -161,7 +172,6 @@ Scopri la battuta
 </div>
 
 <div class="image-box">
-<!-- INSERISCI QUI L'IMMAGINE -->
 <img src="maometto.jpg" alt="battuta">
 </div>
 
