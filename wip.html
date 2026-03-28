@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Battuta della settimana - In arrivo</title>
+
+<style>
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f4f4;
+    margin:0;
+    display:flex;
+    justify-content:center;
+}
+
+.container{
+    max-width:600px;
+    background:white;
+    margin-top:60px;
+    padding:40px;
+    text-align:center;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+h1{
+    margin-bottom:20px;
+}
+
+.message{
+    font-size:20px;
+    margin-top:20px;
+}
+
+.loader{
+    margin:30px auto;
+    border:6px solid #eee;
+    border-top:6px solid #ffd54f;
+    border-radius:50%;
+    width:40px;
+    height:40px;
+    animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+    0%{ transform:rotate(0deg);}
+    100%{ transform:rotate(360deg);}
+}
+
+.back{
+    margin-top:30px;
+    display:inline-block;
+    text-decoration:none;
+    background:#eee;
+    padding:10px 15px;
+    border-radius:6px;
+    color:#333;
+}
+
+.back:hover{
+    background:#ddd;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>😂 Battuta della settimana</h1>
+
+<div class="loader"></div>
+
+<div class="message">
+🚧 Stiamo preparando la prossima battuta...
+</div>
+
+<p>
+Torna tra qualche giorno oppure iscriviti alla newsletter per riceverla direttamente via email!
+</p>
+
+<a href="/index.html" class="back">
+⬅ Torna all'archivio
+</a>
+
+</div>
+
+</body>
+</html>
