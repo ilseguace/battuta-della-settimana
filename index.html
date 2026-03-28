@@ -9,7 +9,7 @@
      crossorigin="anonymous"></script>
 <meta name="google-adsense-account" content="ca-pub-1706259833528879">
 
-<title>Battuta della Settimana</title>
+<title>Archivio Battute - Battute della Settimana</title>
 
 <style>
 
@@ -22,111 +22,71 @@ body{
 }
 
 .container{
-    max-width:600px;
+    max-width:700px;
     background:white;
     margin-top:60px;
     padding:40px;
-    text-align:center;
     border-radius:12px;
     box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
 h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.intro{
+    text-align:center;
     margin-bottom:30px;
 }
 
-.riddle{
-    font-size:26px;
+.button{
+    display:block;
+    text-align:center;
+    margin:30px auto;
+    padding:15px;
+    background:#ffd54f;
+    border-radius:8px;
+    text-decoration:none;
+    color:black;
+    font-size:18px;
+}
+
+.section{
+    margin-top:30px;
+}
+
+.archive-list{
+    list-style:none;
+    padding:0;
+}
+
+.archive-list li{
+    background:#fafafa;
+    margin:10px 0;
+    padding:15px;
+    border-radius:8px;
+    border:1px solid #eee;
+}
+
+.archive-list a{
+    text-decoration:none;
+    color:#333;
     font-weight:bold;
 }
 
-button{
-    margin-top:30px;
-    padding:16px 30px;
-    font-size:18px;
-    border:none;
-    border-radius:8px;
-    background:#ffd54f;
-    cursor:pointer;
-}
-
-button:hover{
-    transform:scale(1.05);
-}
-
-#answer{
-    display:none;
-    margin-top:30px;
-    font-size:24px;
-}
-
-/* Immagine già più piccola e più distante dal bottone */
-.image-box{
-    margin-top:50px;
-}
-
-.image-box img{
-    max-width:70%;
-    border-radius:10px;
-    transition:transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* Fade-in lettera per lettera */
-.fade-letter{
-    opacity:0;
-    display:inline-block;
-    animation:fadeIn 0.4s forwards;
-}
-
-@keyframes fadeIn{
-    from{opacity:0;}
-    to{opacity:1;}
-}
-
-/* Tremolio immagine */
-@keyframes shake{
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(-3px, 2px); }
-    50% { transform: translate(3px, -2px); }
-    75% { transform: translate(-2px, -3px); }
-    100% { transform: translate(0, 0); }
-}
-
-.shake{
-    animation:shake 0.15s infinite;
-}
-
-/* ESPLOSIONE CARTOON */
-@keyframes explodeCartoon {
-    0% { transform: scale(1) rotate(0deg); opacity: 1; filter: brightness(1); }
-    20% { transform: scale(1.3) rotate(8deg); filter: brightness(1.4); }
-    40% { transform: scale(0.9) rotate(-8deg); filter: brightness(0.8); }
-    60% { transform: scale(2.5) rotate(0deg); opacity: 0.7; filter: brightness(2); }
-    100% { transform: scale(4) rotate(0deg); opacity: 0; filter: brightness(3); }
-}
-
-.explode{
-    animation: explodeCartoon 0.7s forwards;
-}
-
-.share{
-    margin-top:35px;
-}
-
-.share button{
-    margin:5px;
-    font-size:14px;
-    padding:10px 15px;
+.archive-list a:hover{
+    text-decoration:underline;
 }
 
 .newsletter{
     margin-top:40px;
+    text-align:center;
 }
 
 .newsletter p{
     margin-bottom:10px;
     font-size:16px;
-    color:#444;
 }
 
 .substack-btn{
@@ -134,7 +94,6 @@ button:hover{
     padding:12px 20px;
     background:#eee;
     color:#333;
-    font-size:15px;
     border-radius:6px;
     text-decoration:none;
     border:1px solid #ddd;
@@ -148,6 +107,7 @@ button:hover{
     margin-top:40px;
     font-size:14px;
     color:#666;
+    text-align:center;
 }
 
 .footer a{
@@ -161,105 +121,69 @@ button:hover{
 
 </style>
 
-<script>
-
-function toggleAnswer(){
-    const answer = document.getElementById("answer");
-    const btn = document.getElementById("toggleBtn");
-    const img = document.querySelector(".image-box img");
-
-    if(answer.style.display === "none"){
-        answer.style.display = "block";
-        answer.innerHTML = "";
-        btn.textContent = "Nascondi battuta";
-
-        const text = "... Ma-ometto :)";
-        let delay = 0;
-
-        /* 1️⃣ TREMOLO SUBITO */
-        img.classList.add("shake");
-
-        /* 2️⃣ DOPO 2 SECONDI PARTE IL TESTO */
-        setTimeout(() => {
-
-            for(let i = 0; i < text.length; i++){
-                const span = document.createElement("span");
-                span.textContent = text[i];
-                span.classList.add("fade-letter");
-                span.style.animationDelay = (delay / 1000) + "s";
-                answer.appendChild(span);
-                delay += 80;
-            }
-
-            /* 3️⃣ QUANDO IL TESTO È COMPLETO → ESPLOSIONE */
-            setTimeout(() => {
-                img.classList.remove("shake");
-                img.classList.add("explode");
-            }, delay + 300);
-
-        }, 500); // attesa tremolio iniziale
-
-    } else {
-        /* RESET */
-        answer.style.display = "none";
-        answer.innerHTML = "";
-        btn.textContent = "Scopri la battuta";
-
-        img.classList.remove("shake");
-        img.classList.remove("explode");
-        img.style.opacity = "1";
-        img.style.transform = "scale(1)";
-    }
-}
-
-function shareWhatsApp(){
-    const text = "Guarda questa battuta 😂";
-    const url = window.location.href;
-    window.open(`https://wa.me/?text=${text} ${url}`);
-}
-
-function shareFacebook(){
-    const url = window.location.href;
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`);
-}
-
-</script>
-
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>😂 Battuta della settimana</h1>
+<h1>😂 Archivio Battute</h1>
 
-<div class="riddle">
-Vorrei fare una battuta sull'Islam...
+<div class="intro">
+<p>
+Benvenuto nell’archivio delle battute! Qui trovi tutte le battute pubblicate settimana dopo settimana.
+</p>
+
+<p>
+Ogni settimana una nuova battuta divertente da leggere e condividere.
+</p>
 </div>
 
-<button id="toggleBtn" onclick="toggleAnswer()">
-Scopri la battuta
-</button>
+<a href="/battute/week/13.html" class="button">
+👉 Vai all'ultima battuta
+</a>
 
-<div id="answer"></div>
+<div class="section">
+<h2>📅 Tutte le battute</h2>
 
-<div class="image-box">
-    <img src="maometto.jpg" alt="battuta">
+<ul class="archive-list">
+
+<li>
+<a href="/battute/week/12.html">
+Settimana 12 – Che differenza c’è tra me e Batman?
+</a>
+</li>
+
+<li>
+<a href="/battute/week/13.html">
+Settimana 13 – Vorrei fare una battuta sull'Islam...
+</a>
+</li>
+
+<li>
+<a href="/battute/week/14.html">
+Settimana 14 – Prossima battuta in arrivo 😄
+</a>
+</li>
+
+</ul>
+
 </div>
 
-<div class="share">
+<div class="section">
+<h2>💡 Cos’è questo sito</h2>
 
-<p>Condividi la battuta</p>
-
-<button onclick="shareWhatsApp()">WhatsApp</button>
-<button onclick="shareFacebook()">Facebook</button>
+<p>
+Questo sito raccoglie battute e indovinelli brevi, perfetti da condividere con amici, colleghi e sui social.
+L’obiettivo è farti sorridere con contenuti semplici e veloci.
+</p>
 
 </div>
 
 <!-- Newsletter -->
 <div class="newsletter">
     <p><strong>📬 Vuoi ricevere una battuta a settimana via mail?</strong></p>
-
+    
     <a class="substack-btn" 
        href="https://marcodelfavero1.substack.com/subscribe" 
        target="_blank">
