@@ -3,51 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Battuta della settimana - In arrivo</title>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1706259833528879"
+crossorigin="anonymous"></script>
+<meta name="google-adsense-account" content="ca-pub-1706259833528879">
+<title>Battuta della Settimana</title>
 
 <style>
 
 body{
-    font-family: Arial, Helvetica, sans-serif;
-    background:#f4f4f4;
-    margin:0;
-    display:flex;
-    justify-content:center;
+font-family: Arial, Helvetica, sans-serif;
+background:#f4f4f4;
+margin:0;
+display:flex;
+justify-content:center;
 }
 
 .container{
-    max-width:600px;
-    background:white;
-    margin-top:60px;
-    padding:40px;
-    text-align:center;
-    border-radius:12px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+max-width:600px;
+background:white;
+margin-top:60px;
+padding:40px;
+text-align:center;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
 }
 
 h1{
-    margin-bottom:20px;
+margin-bottom:30px;
 }
 
-.message{
-    font-size:20px;
-    margin-top:20px;
+.riddle{
+font-size:26px;
+font-weight:bold;
 }
 
-.loader{
-    margin:30px auto;
-    border:6px solid #eee;
-    border-top:6px solid #ffd54f;
-    border-radius:50%;
-    width:40px;
-    height:40px;
-    animation:spin 1s linear infinite;
+button{
+margin-top:30px;
+padding:16px 30px;
+font-size:18px;
+border:none;
+border-radius:8px;
+background:#ffd54f;
+cursor:pointer;
 }
 
-@keyframes spin{
-    0%{ transform:rotate(0deg);}
-    100%{ transform:rotate(360deg);}
+button:hover{
+transform:scale(1.05);
+}
+
+#answer{
+display:none;
+margin-top:30px;
+font-size:24px;
+}
+
+.image-box{
+margin-top:30px;
+}
+
+.image-box img{
+max-width:100%;
+border-radius:10px;
+}
+
+.share{
+margin-top:35px;
+}
+
+.share button{
+margin:5px;
+font-size:14px;
+padding:10px 15px;
+}
+
+.ad{
+margin-top:40px;
+padding:20px;
+background:#e0e0e0;
+border-radius:8px;
+font-size:14px;
 }
 
 .back{
@@ -66,29 +101,70 @@ h1{
 
 </style>
 
+<script>
+
+function showAnswer(){
+document.getElementById("answer").style.display="block";
+}
+
+function shareWhatsApp(){
+const text = "Indovinello: Che differenza c’è tra me e Batman?";
+const url = window.location.href;
+window.open(`https://wa.me/?text=${text} ${url}`);
+}
+
+function shareLinkedIn(){
+const url = window.location.href;
+window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${url}`);
+}
+
+function shareFacebook(){
+const url = window.location.href;
+window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`);
+}
+
+</script>
+
 </head>
 
 <body>
 
 <div class="container">
 
-<h1>😂 Battuta della settimana</h1>
+<h1>😂 Indovinello della settimana</h1>
 
-<div class="loader"></div>
-
-<div class="message">
-🚧 Stiamo preparando la prossima battuta...
+<div class="riddle">
+Una Giraffa va a una festa e da bere vede solo Cocacole e si chiede:
 </div>
 
-<p>
-Torna tra qualche giorno oppure iscriviti alla newsletter per riceverla direttamente via email!
-</p>
+<button onclick="showAnswer()">
+Scopri la battuta
+</button>
+
+<div id="answer">
+e-le-fante?
+
+<div class="image-box">
+<!-- INSERISCI QUI L'IMMAGINE -->
+<img src="e-le-fante.jpg" alt="battuta" style="width: 200px; display: block; margin: 0 auto;">
+</div>
+  
+</div>
+
+<div class="share">
+
+<p>Condividi la battuta</p>
+
+<button onclick="shareWhatsApp()">WhatsApp</button>
+<button onclick="shareLinkedIn()">LinkedIn</button>
+<button onclick="shareFacebook()">Facebook</button>
+
+</div>
 
 <a href="/battuta-della-settimana/index.html" class="back">
-⬅ Torna all'archivio
+Vedi l'archivio delle battute settimanali
 </a>
-
-</div>
+  
 
 </body>
 </html>
